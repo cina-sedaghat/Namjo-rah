@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پایگاه بسیج نامجو | مسجد حضرت محمد ص</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ========== RESET & BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background-color: #f8f9fc;
+      color: #2d3748;
+      line-height: 1.8;
+      direction: rtl;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ========== HEADER ========== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #e8ecf1;
+      box-shadow: 0 1px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .logo-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(43, 108, 176, 0.25);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.3;
+    }
+
+    .logo-text .title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a202c;
+    }
+
+    .logo-text .subtitle {
+      font-size: 12px;
+      font-weight: 400;
+      color: #718096;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav a {
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #4a5568;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #2b6cb0;
+      background: #ebf4ff;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      color: #4a5568;
+      font-size: 20px;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      padding: 80px 0 70px;
+      background: linear-gradient(170deg, #f0f7ff 0%, #ffffff 50%, #f8f9fc 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: -80px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(43, 108, 176, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(49, 130, 206, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ebf4ff;
+      color: #2b6cb0;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+      border: 1px solid #bee3f8;
+    }
+
+    .hero-badge span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #38a169;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.35;
+      color: #1a202c;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #2b6cb0, #3182ce);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #4a5568;
+      line-height: 2;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2b6cb0, #3182ce);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(43, 108, 176, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(43, 108, 176, 0.35);
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: #2b6cb0;
+      border: 1.5px solid #bee3f8;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .btn-outline:hover {
+      background: #ebf4ff;
+      border-color: #90cdf4;
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
+      border: 1px solid #edf2f7;
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 28px;
+      left: 28px;
+      height: 4px;
+      border-radius: 0 0 4px 4px;
+      background: linear-gradient(90deg, #2b6cb0, #63b3ed);
+    }
+
+    .hero-card .icon-row {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-card .icon-row .ic {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .ic-blue { background: #ebf4ff; color: #2b6cb0; }
+    .ic-green { background: #f0fff4; color: #38a169; }
+    .ic-amber { background: #fffff0; color: #d69e2e; }
+
+    .hero-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 6px;
+    }
+
+    .hero-card p {
+      font-size: 13.5px;
+      color: #718096;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    .hero-card .stat-mini {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      background: #f7fafc;
+      border-radius: 14px;
+      margin-top: 8px;
+    }
+
+    .hero-card .stat-mini .num {
+      font-size: 24px;
+      font-weight: 800;
+      color: #2b6cb0;
+    }
+
+    .hero-card .stat-mini .lbl {
+      font-size: 13px;
+      color: #718096;
+    }
+
+    /* ========== SECTION COMMON ========== */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-header .tag {
+      display: inline-block;
+      background: #ebf4ff;
+      color: #2b6cb0;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      border: 1px solid #bee3f8;
+    }
+
+    .section-header h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1a202c;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .section-header p {
+      font-size: 15.5px;
+      color: #718096;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ========== ABOUT ========== */
+    .about {
+      background: #fff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-size: 30px;
+      font-weight: 800;
+      color: #1a202c;
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+
+    .about-content p {
+      font-size: 15.5px;
+      color: #4a5568;
+      line-height: 2.1;
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .feature-item .check {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: #ebf4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2b6cb0;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .feature-item span {
+      font-size: 14.5px;
+      color: #4a5568;
+      line-height: 1.9;
+    }
+
+    .about-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-card {
+      background: linear-gradient(160deg, #f7fafc, #edf2f7);
+      border-radius: 24px;
+      padding: 36px 30px;
+      width: 100%;
+      max-width: 440px;
+      border: 1px solid #e2e8f0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(43, 108, 176, 0.04);
+    }
+
+    .about-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      position: relative;
+    }
+
+    .about-stat {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px 16px;
+      text-align: center;
+      border: 1px solid #edf2f7;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease;
+    }
+
+    .about-stat:hover {
+      transform: translateY(-4px);
+    }
+
+    .about-stat .num {
+      font-size: 28px;
+      font-weight: 800;
+      color: #2b6cb0;
+      margin-bottom: 4px;
+    }
+
+    .about-stat .lbl {
+      font-size: 12.5px;
+      color: #718096;
+      font-weight: 500;
+    }
+
+    /* ========== SERVICES ========== */
+    .services {
+      background: #f8f9fc;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 26px;
+      border: 1px solid #edf2f7;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #2b6cb0, #63b3ed);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(43, 108, 176, 0.1);
+      border-color: #bee3f8;
+    }
+
+    .service-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #718096;
+      line-height: 2;
+      margin-bottom: 18px;
+    }
+
+    .service-card .link {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #2b6cb0;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .service-card .link:hover {
+      gap: 9px;
+    }
+
+    /* ========== GALLERY / ACTIVITIES ========== */
+    .activities {
+      background: #fff;
+    }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .activity-card {
+      background: #f8f9fc;
+      border-radius: 20px;
+      padding: 28px 26px;
+      border: 1px solid #edf2f7;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+
+    .activity-card:hover {
+      background: #fff;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+      border-color: #bee3f8;
+    }
+
+    .activity-card .act-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .activity-card h4 {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 6px;
+    }
+
+    .activity-card p {
+      font-size: 13.5px;
+      color: #718096;
+      line-height: 1.95;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact {
+      background: #f8f9fc;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #fff;
+      border-radius: 16px;
+      padding: 22px;
+      border: 1px solid #edf2f7;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateX(-4px);
+    }
+
+    .contact-item .ci-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      background: #ebf4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2b6cb0;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-item h4 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 4px;
+    }
+
+    .contact-item p {
+      font-size: 13.5px;
+      color: #718096;
+      line-height: 1.9;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .contact-map {
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid #edf2f7;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .contact-map .placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      color: #a0aec0;
+    }
+
+    .contact-map .placeholder .mp-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: #ebf4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2b6cb0;
+      font-size: 28px;
+    }
+
+    .contact-map .placeholder p {
+      font-size: 14px;
+      color: #718096;
+      line-height: 1.9;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: #1a202c;
+      color: #a0aec0;
+      padding: 55px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #2d3748;
+    }
+
+    .footer-brand h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand .sub {
+      font-size: 13px;
+      color: #718096;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 13.5px;
+      line-height: 2;
+      color: #a0aec0;
+    }
+
+    .footer h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13.5px;
+      color: #a0aec0;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #63b3ed;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-contact div {
+      font-size: 13.5px;
+      color: #a0aec0;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .footer-bottom {
+      padding: 22px 0;
+      text-align: center;
+      font-size: 13px;
+      color: #718096;
+    }
+
+    .footer-bottom .eifa-link {
+      color: #63b3ed;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom .eifa-link:hover {
+      color: #90cdf4;
+      text-decoration: underline;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 992px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .hero p {
+        margin: 0 auto 32px;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        right: 0;
+        left: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 16px 20px;
+        gap: 4px;
+        border-bottom: 1px solid #e8ecf1;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .nav a {
+        width: 100%;
+        text-align: right;
+        padding: 12px 16px;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero {
+        padding: 60px 0 50px;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-header h2 {
+        font-size: 26px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .activities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-content h2 {
+        font-size: 24px;
+      }
+
+      .btn {
+        padding: 12px 22px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .hero-card {
+        padding: 24px 20px;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <div class="logo-icon">ب</div>
+          <div class="logo-text">
+            <span class="title">پایگاه بسیج نامجو</span>
+            <span class="subtitle">مسجد حضرت محمد ص</span>
+          </div>
+        </div>
+
+        <nav class="nav" id="mainNav">
+          <a href="#home" class="active">خانه</a>
+          <a href="#about">درباره پایگاه</a>
+          <a href="#services">خدمات و فعالیت‌ها</a>
+          <a href="#activities">گزارش تصویری</a>
+          <a href="#contact">تماس با ما</a>
+        </nav>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="منو">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span></span>
+            فعال در مسجد حضرت محمد ص
+          </div>
+          <h1>
+            پایگاه بسیج <span class="highlight">نامجو</span><br>
+            سنگر خدمت و مقاومت
+          </h1>
+          <p>
+            پایگاه بسیج شهید نامجو در جوار مسجد حضرت محمد ص، با هدف خدمت به محله،
+            تربیت نوجوانان انقلابی و اجرای برنامه‌های فرهنگی، جهادی و اجتماعی فعالیت می‌کند.
+          </p>
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">
+              فعالیت‌های ما
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-outline">تماس با ما</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="icon-row">
+              <div class="ic ic-blue">🕌</div>
+              <div class="ic ic-green">🤝</div>
+              <div class="ic ic-amber">🎓</div>
+            </div>
+            <h3>پایگاه بسیج نامجو</h3>
+            <p>مستقر در مسجد حضرت محمد ص — امام خمینی ۵۸</p>
+            <div class="stat-mini">
+              <div class="num">+۵۰۰</div>
+              <div class="lbl">خانواده تحت حمایت<br>در طرح‌های محرومیت‌زدایی</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2>درباره پایگاه بسیج نامجو</h2>
+          <p>
+            پایگاه مقاومت بسیج شهید نامجو (ره) با محوریت مسجد حضرت محمد ص در منطقه امام خمینی ۵۸،
+            به عنوان یکی از پایگاه‌های فعال در عرصه‌های فرهنگی، اجتماعی و جهادی شناخته می‌شود.
+          </p>
+          <p>
+            این پایگاه با همت بسیجیان جهادگر، برنامه‌های متنوعی از جمله توزیع بسته‌های معیشتی،
+            اردوهای تفریحی و تربیتی برای نوجوانان، نشست‌های بصیرتی و روشنگری، و همچنین
+            فعالیت‌های مسجد‌محور را در دستور کار خود قرار داده است.
+          </p>
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="check">✓</div>
+              <span>خدمت به خانواده‌های نیازمند محله از طریق رزمایش‌های همدلی و کمک‌های مومنانه</span>
+            </div>
+            <div class="feature-item">
+              <div class="check">✓</div>
+              <span>برگزاری اردوهای تفریحی و تربیتی برای نوجوانان و نونهالان مسجد</span>
+            </div>
+            <div class="feature-item">
+              <div class="check">✓</div>
+              <span>نشست‌های بصیرتی، سیاسی و فرهنگی با حضور مسئولان و کارشناسان</span>
+            </div>
+            <div class="feature-item">
+              <div class="check">✓</div>
+              <span>فعالیت‌های جهادی و محرومیت‌زدایی در منطقه</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="about-card">
+            <h3>آمار و دستاوردها</h3>
+            <div class="about-stats">
+              <div class="about-stat">
+                <div class="num">+۵۰۰</div>
+                <div class="lbl">بسته معیشتی توزیع‌شده</div>
+              </div>
+              <div class="about-stat">
+                <div class="num">+۶۰۰۰</div>
+                <div class="lbl">پرس غذای گرم افطاری</div>
+              </div>
+              <div class="about-stat">
+                <div class="num">+۱۰۰</div>
+                <div class="lbl">نوجوان در اردوها</div>
+              </div>
+              <div class="about-stat">
+                <div class="num">+۲۰</div>
+                <div class="lbl">برنامه فرهنگی ماهانه</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">خدمات و فعالیت‌ها</div>
+        <h2>چه کارهایی انجام می‌دهیم؟</h2>
+        <p>مجموعه‌ای از برنامه‌های فرهنگی، جهادی و اجتماعی برای خدمت به محله و تربیت نسل انقلابی</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon ic-blue">🤲</div>
+          <h3>کمک‌های مومنانه</h3>
+          <p>تهیه و توزیع بسته‌های معیشتی، غذای گرم و کمک به خانواده‌های نیازمند محله در مناسبت‌های مختلف.</p>
+          <span class="link">بیشتر بدانید ←</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon ic-green">🏕️</div>
+          <h3>اردوهای تفریحی و تربیتی</h3>
+          <p>برگزاری اردوهای نیم‌روزه و یک‌روزه برای نوجوانان و نونهالان با هدف تقویت روحیه جمعی و تربیت اسلامی.</p>
+          <span class="link">بیشتر بدانید ←</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon ic-amber">📚</div>
+          <h3>نشست‌های بصیرتی</h3>
+          <p>برگزاری مراسم نهضت روشنگری، نشست‌های سیاسی و فرهنگی با حضور مسئولان و کارشناسان.</p>
+          <span class="link">بیشتر بدانید ←</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon ic-blue">🕌</div>
+          <h3>فعالیت‌های مسجد‌محور</h3>
+          <p>همکاری با مسجد حضرت محمد ص در برگزاری مراسم مذهبی، نماز جماعت و برنامه‌های مناسبتی.</p>
+          <span class="link">بیشتر بدانید ←</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon ic-green">🎗️</div>
+          <h3>گرامیداشت شهدا</h3>
+          <p>برگزاری یادواره شهدا، تجلیل از خانواده‌های معظم شهدا و ترویج فرهنگ ایثار و مقاومت.</p>
+          <span class="link">بیشتر بدانید ←</span>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon ic-amber">🧑‍🎓</div>
+          <h3>تربیت نوجوان انقلابی</h3>
+          <p>اجرای برنامه‌های تربیتی و مهارت‌آموزی برای نوجوانان با هدف آماده‌سازی نسل آینده انقلاب.</p>
+          <span class="link">بیشتر بدانید ←</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ACTIVITIES ========== -->
+  <section class="section activities" id="activities">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">گزارش فعالیت‌ها</div>
+        <h2>آخرین برنامه‌های پایگاه</h2>
+        <p>گوشه‌ای از فعالیت‌های اخیر بسیجیان پایگاه شهید نامجو</p>
+      </div>
+
+      <div class="activities-grid">
+        <div class="activity-card">
+          <div class="act-icon ic-blue">🍲</div>
+          <div>
+            <h4>توزیع روزانه ۳۰۰ پرس غذای گرم افطاری</h4>
+            <p>به همت بسیجیان جهادگر پایگاه شهید نامجو، در ماه مبارک رمضان روزانه ۳۰۰ پرس غذای گرم افطاری برای خانواده‌های نیازمند تهیه و توزیع شد.</p>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="act-icon ic-green">📦</div>
+          <div>
+            <h4>توزیع ۵۰ بسته معیشتی</h4>
+            <p>پنجاه بسته حمایتی معیشتی شامل برنج، روغن، رب و... به ارزش یکصد و بیست میلیون ریال بین خانواده‌های نیازمند توزیع شد.</p>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="act-icon ic-amber">🎉</div>
+          <div>
+            <h4>اردوی تفریحی نیم‌روزه نونهالان</h4>
+            <p>اردوی تفریحی نیم‌روزه ویژه نونهالان مسجد حضرت محمد ص و پایگاه بسیج شهید نامجو در اردوگاه امیرالمؤمنین (ع) برگزار شد.</p>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="act-icon ic-blue">🗣️</div>
+          <div>
+            <h4>مراسم نهضت روشنگری و نشست بصیرتی</h4>
+            <p>نشست بصیرتی سیاسی با حضور دکتر امیرآبادی نماینده مردم در مجلس شورای اسلامی به مناسبت یوم‌الله ۱۹ دی برگزار شد.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">تماس با ما</div>
+        <h2>راه‌های ارتباطی</h2>
+        <p>برای هماهنگی، عضویت و شرکت در برنامه‌ها با ما در تماس باشید</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <h4>آدرس پایگاه</h4>
+              <p>امام خمینی ۵۸، مسجد حضرت محمد ص</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <h4>شماره تماس — سجادی</h4>
+              <p>۰۹۱۵ ۴۱۸ ۸۵۲۸</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="ci-icon">🕐</div>
+            <div>
+              <h4>ساعات فعالیت</h4>
+              <p>شنبه تا پنج‌شنبه — ۱۶:۰۰ تا ۲۰:۰۰</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="ci-icon">🕌</div>
+            <div>
+              <h4>محل استقرار</h4>
+              <p>مسجد حضرت محمد ص (ص)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-map">
+          <div class="placeholder">
+            <div class="mp-icon">🗺️</div>
+            <p>
+              <strong>امام خمینی ۵۸، مسجد حضرت محمد ص</strong><br>
+              محل استقرار پایگاه بسیج نامجو
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>پایگاه بسیج نامجو</h3>
+          <div class="sub">مستقر در مسجد حضرت محمد ص</div>
+          <p>
+            پایگاه مقاومت بسیج شهید نامجو (ره) با هدف خدمت به محله، تربیت نوجوانان انقلابی
+            و اجرای برنامه‌های فرهنگی، جهادی و اجتماعی فعالیت می‌کند.
+          </p>
+        </div>
+
+        <div>
+          <h4>دسترسی سریع</h4>
+          <div class="footer-links">
+            <a href="#home">خانه</a>
+            <a href="#about">درباره پایگاه</a>
+            <a href="#services">خدمات و فعالیت‌ها</a>
+            <a href="#activities">گزارش تصویری</a>
+            <a href="#contact">تماس با ما</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>اطلاعات تماس</h4>
+          <div class="footer-contact">
+            <div>
+              <span>📍</span>
+              <span>امام خمینی ۵۸، مسجد حضرت محمد ص</span>
+            </div>
+            <div>
+              <span>📞</span>
+              <span>۰۹۱۵ ۴۱۸ ۸۵۲۸ — سجادی</span>
+            </div>
+            <div>
+              <span>🕐</span>
+              <span>شنبه تا پنج‌شنبه — ۱۶ تا ۲۰</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        طراحی و توسعه توسط
+        <a href="https://eifatech.ir" target="_blank" rel="noopener" class="eifa-link">ایفا تک</a>
+        — تمامی حقوق محفوظ است.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    mobileToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+      });
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
