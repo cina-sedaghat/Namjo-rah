@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پایگاه بسیج نامجو | مسجد حضرت محمد ص</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ RESET ============ */
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Vazirmatn',Tahoma,sans-serif;
+    background:#f7f9fc;
+    color:#2d3748;
+    line-height:1.8;
+    direction:rtl;
+    overflow-x:hidden;
+  }
+  a{text-decoration:none;color:inherit;transition:.3s}
+  ul{list-style:none}
+  img{max-width:100%;display:block}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+  /* ============ TOP BAR ============ */
+  .topbar{
+    background:linear-gradient(90deg,#1a365d,#2b6cb0);
+    color:#cbd5e0;
+    font-size:12.5px;
+    padding:8px 0;
+  }
+  .topbar-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+  .topbar-left{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .topbar-left span{display:inline-flex;align-items:center;gap:6px}
+  .topbar-right{display:flex;gap:12px;align-items:center}
+  .topbar-right a{
+    width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:center;font-size:13px;
+  }
+  .topbar-right a:hover{background:rgba(255,255,255,.2);color:#fff}
+
+  /* ============ HEADER ============ */
+  .header{
+    background:#fff;
+    border-bottom:1px solid #e8ecf1;
+    box-shadow:0 2px 20px rgba(0,0,0,.04);
+    position:sticky;top:0;z-index:900;
+  }
+  .header-main{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
+  .logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .logo-icon{
+    width:56px;height:56px;border-radius:16px;
+    background:linear-gradient(135deg,#2b6cb0,#4299e1);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:26px;font-weight:800;
+    box-shadow:0 6px 20px rgba(43,108,176,.3);
+  }
+  .logo-text .title{font-size:19px;font-weight:800;color:#1a202c;line-height:1.3}
+  .logo-text .subtitle{font-size:12.5px;color:#718096;font-weight:500;margin-top:2px}
+
+  .header-search{
+    flex:1;max-width:420px;position:relative;
+  }
+  .header-search input{
+    width:100%;padding:11px 44px 11px 16px;border-radius:12px;
+    border:1.5px solid #e2e8f0;background:#f7fafc;
+    font-family:inherit;font-size:14px;color:#2d3748;
+    transition:.3s;outline:none;
+  }
+  .header-search input:focus{border-color:#90cdf4;background:#fff;box-shadow:0 0 0 4px rgba(66,153,225,.1)}
+  .header-search .search-icon{
+    position:absolute;top:50%;right:14px;transform:translateY(-50%);
+    color:#a0aec0;font-size:16px;pointer-events:none;
+  }
+
+  .header-actions{display:flex;gap:10px;align-items:center;flex-shrink:0}
+  .btn-member{
+    padding:10px 22px;border-radius:11px;font-size:13.5px;font-weight:600;
+    background:linear-gradient(135deg,#2b6cb0,#4299e1);color:#fff;
+    box-shadow:0 4px 14px rgba(43,108,176,.28);transition:.3s;
+  }
+  .btn-member:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(43,108,176,.35)}
+  .mobile-toggle{
+    display:none;width:44px;height:44px;border-radius:12px;
+    border:1.5px solid #e2e8f0;align-items:center;justify-content:center;
+    color:#4a5568;font-size:20px;
+  }
+
+  /* ============ MAIN NAV ============ */
+  .mainnav{
+    background:#fff;
+    border-top:1px solid #edf2f7;
+    position:relative;
+  }
+  .mainnav-inner{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none}
+  .mainnav-inner::-webkit-scrollbar{display:none}
+  .mainnav-inner > li{position:relative;flex-shrink:0}
+  .mainnav-inner > li > a{
+    display:flex;align-items:center;gap:5px;
+    padding:14px 16px;font-size:14px;font-weight:600;color:#4a5568;
+    border-bottom:3px solid transparent;transition:.25s;white-space:nowrap;
+  }
+  .mainnav-inner > li > a:hover,
+  .mainnav-inner > li.active > a{color:#2b6cb0;border-bottom-color:#2b6cb0}
+  .mainnav-inner > li > a .arrow{font-size:10px;opacity:.6}
+
+  /* dropdown */
+  .dropdown{
+    position:absolute;top:100%;right:0;min-width:220px;
+    background:#fff;border-radius:12px;padding:8px;
+    box-shadow:0 12px 40px rgba(0,0,0,.12);border:1px solid #edf2f7;
+    opacity:0;visibility:hidden;transform:translateY(8px);
+    transition:.25s;z-index:100;
+  }
+  .mainnav-inner > li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+  .dropdown a{
+    display:block;padding:9px 14px;border-radius:8px;
+    font-size:13.5px;color:#4a5568;font-weight:500;
+  }
+  .dropdown a:hover{background:#ebf4ff;color:#2b6cb0}
+
+  /* ============ HERO SLIDER ============ */
+  .hero{padding:28px 0 20px;background:#f7f9fc}
+  .hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+
+  .slider{
+    position:relative;border-radius:20px;overflow:hidden;
+    background:linear-gradient(135deg,#1e3a5f,#2b6cb0);
+    min-height:380px;display:flex;align-items:flex-end;
+    padding:36px 32px;color:#fff;
+  }
+  .slider::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.12),transparent 50%);
+  }
+  .slider-content{position:relative;z-index:2;max-width:620px}
+  .slider-tag{
+    display:inline-block;background:rgba(255,255,255,.18);color:#fff;
+    font-size:12px;font-weight:600;padding:6px 14px;border-radius:50px;
+    margin-bottom:14px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);
+  }
+  .slider h1{font-size:28px;font-weight:800;line-height:1.5;margin-bottom:12px}
+  .slider p{font-size:14.5px;color:#cbd5e0;line-height:2;margin-bottom:22px}
+  .slider-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-white{
+    padding:11px 24px;border-radius:11px;font-size:13.5px;font-weight:600;
+    background:#fff;color:#2b6cb0;transition:.3s;
+  }
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+  .btn-ghost{
+    padding:11px 24px;border-radius:11px;font-size:13.5px;font-weight:600;
+    background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);
+    backdrop-filter:blur(8px);transition:.3s;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.24)}
+
+  .hero-side{display:flex;flex-direction:column;gap:16px}
+  .side-card{
+    background:#fff;border-radius:16px;padding:20px;
+    border:1px solid #edf2f7;box-shadow:0 2px 14px rgba(0,0,0,.04);
+    flex:1;display:flex;flex-direction:column;justify-content:center;
+  }
+  .side-card h3{
+    font-size:14.5px;font-weight:700;color:#1a202c;margin-bottom:12px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .side-card h3::before{
+    content:'';width:4px;height:16px;border-radius:2px;
+    background:linear-gradient(180deg,#2b6cb0,#4299e1);
+  }
+  .side-list li{
+    display:flex;align-items:flex-start;gap:8px;
+    padding:8px 0;font-size:13px;color:#4a5568;line-height:1.8;
+    border-bottom:1px dashed #edf2f7;
+  }
+  .side-list li:last-child{border-bottom:none}
+  .side-list li::before{
+    content:'◂';color:#4299e1;font-size:11px;margin-top:5px;flex-shrink:0;
+  }
+  .side-list a:hover{color:#2b6cb0}
+
+  .quick-access{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .qa-item{
+    background:#f7fafc;border:1px solid #edf2f7;border-radius:12px;
+    padding:14px 10px;text-align:center;transition:.3s;
+  }
+  .qa-item:hover{background:#ebf4ff;border-color:#bee3f8;transform:translateY(-3px)}
+  .qa-item .qa-icon{font-size:22px;margin-bottom:6px}
+  .qa-item .qa-label{font-size:12px;font-weight:600;color:#4a5568}
+
+  /* ============ SECTIONS ============ */
+  .section{padding:60px 0}
+  .section-alt{background:#fff}
+
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:32px;gap:16px;flex-wrap:wrap;
+  }
+  .section-head .title-wrap h2{
+    font-size:24px;font-weight:800;color:#1a202c;
+    display:flex;align-items:center;gap:12px;margin-bottom:6px;
+  }
+  .section-head .title-wrap h2::before{
+    content:'';width:6px;height:26px;border-radius:3px;
+    background:linear-gradient(180deg,#2b6cb0,#4299e1);
+  }
+  .section-head .title-wrap p{font-size:13.5px;color:#718096}
+  .section-head .more-link{
+    font-size:13.5px;font-weight:600;color:#2b6cb0;
+    display:inline-flex;align-items:center;gap:6px;transition:.3s;
+  }
+  .section-head .more-link:hover{gap:10px}
+
+  /* ============ NEWS GRID ============ */
+  .news-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;
+    gap:20px;
+  }
+  .news-feature{
+    background:#fff;border-radius:18px;overflow:hidden;
+    border:1px solid #edf2f7;box-shadow:0 2px 14px rgba(0,0,0,.04);
+    transition:.3s;display:flex;flex-direction:column;
+  }
+  .news-feature:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+  .news-thumb{
+    height:180px;background:linear-gradient(135deg,#2b6cb0,#63b3ed);
+    display:flex;align-items:center;justify-content:center;
+    font-size:48px;color:rgba(255,255,255,.7);position:relative;
+  }
+  .news-thumb.g2{background:linear-gradient(135deg,#38a169,#68d391)}
+  .news-thumb.g3{background:linear-gradient(135deg,#d69e2e,#f6ad55)}
+  .news-badge{
+    position:absolute;top:14px;right:14px;
+    background:rgba(255,255,255,.95);color:#2b6cb0;
+    font-size:11px;font-weight:700;padding:5px 12px;border-radius:50px;
+  }
+  .news-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
+  .news-meta{
+    font-size:12px;color:#a0aec0;margin-bottom:8px;
+    display:flex;gap:14px;align-items:center;
+  }
+  .news-meta span{display:inline-flex;align-items:center;gap:4px}
+  .news-body h3{font-size:15.5px;font-weight:700;color:#1a202c;line-height:1.7;margin-bottom:10px}
+  .news-body h3 a:hover{color:#2b6cb0}
+  .news-body p{font-size:13px;color:#718096;line-height:1.95;margin-bottom:14px;flex:1}
+  .news-body .read{font-size:12.5px;font-weight:600;color:#2b6cb0}
+
+  .news-list{display:flex;flex-direction:column;gap:14px}
+  .news-mini{
+    background:#fff;border-radius:14px;padding:16px 18px;
+    border:1px solid #edf2f7;transition:.3s;
+    display:flex;gap:14px;align-items:flex-start;
+  }
+  .news-mini:hover{border-color:#bee3f8;background:#f7fbff;transform:translateX(-4px)}
+  .news-mini .mini-icon{
+    width:42px;height:42px;border-radius:11px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+    background:#ebf4ff;color:#2b6cb0;
+  }
+  .news-mini h4{font-size:13.5px;font-weight:700;color:#1a202c;line-height:1.7;margin-bottom:5px}
+  .news-mini h4 a:hover{color:#2b6cb0}
+  .news-mini .nm{font-size:11.5px;color:#a0aec0}
+
+  /* ============ CATEGORY CARDS ============ */
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .cat-card{
+    background:#fff;border-radius:16px;padding:24px 20px;text-align:center;
+    border:1px solid #edf2f7;box-shadow:0 2px 12px rgba(0,0,0,.03);
+    transition:.35s;position:relative;overflow:hidden;
+  }
+  .cat-card::after{
+    content:'';position:absolute;bottom:0;right:0;left:0;height:3px;
+    background:linear-gradient(90deg,#2b6cb0,#4299e1);
+    transform:scaleX(0);transform-origin:right;transition:.35s;
+  }
+  .cat-card:hover{transform:translateY(-6px);box-shadow:0 14px 32px rgba(43,108,176,.1);border-color:#bee3f8}
+  .cat-card:hover::after{transform:scaleX(1)}
+  .cat-icon{
+    width:58px;height:58px;border-radius:16px;margin:0 auto 14px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
+  }
+  .ci-blue{background:#ebf4ff;color:#2b6cb0}
+  .ci-green{background:#f0fff4;color:#38a169}
+  .ci-amber{background:#fffff0;color:#d69e2e}
+  .ci-red{background:#fff5f5;color:#e53e3e}
+  .ci-purple{background:#faf5ff;color:#805ad5}
+  .ci-teal{background:#e6fffa;color:#319795}
+  .ci-pink{background:#fff5f7;color:#d53f8c}
+  .ci-indigo{background:#ebf4ff;color:#4c51bf}
+  .cat-card h3{font-size:14.5px;font-weight:700;color:#1a202c;margin-bottom:6px}
+  .cat-card p{font-size:12.5px;color:#718096;line-height:1.8}
+
+  /* ============ SPEECH/MESSAGE ============ */
+  .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+  .topic-panel{
+    background:#fff;border-radius:18px;border:1px solid #edf2f7;
+    padding:26px 24px;box-shadow:0 2px 14px rgba(0,0,0,.04);
+  }
+  .topic-panel h3{
+    font-size:16.5px;font-weight:800;color:#1a202c;margin-bottom:18px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .topic-panel h3 a{font-size:12.5px;font-weight:600;color:#2b6cb0}
+
+  .speech-item{
+    padding:14px 0;border-bottom:1px dashed #edf2f7;
+    display:flex;gap:12px;align-items:flex-start;
+  }
+  .speech-item:last-child{border-bottom:none;padding-bottom:0}
+  .speech-item .sp-icon{
+    width:38px;height:38px;border-radius:10px;flex-shrink:0;
+    background:#ebf4ff;color:#2b6cb0;font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .speech-item h4{font-size:13.5px;font-weight:700;color:#1a202c;line-height:1.7;margin-bottom:4px}
+  .speech-item h4 a:hover{color:#2b6cb0}
+  .speech-item .sm{font-size:11.5px;color:#a0aec0}
+
+  /* ============ MEETINGS ============ */
+  .meeting-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .meeting-card{
+    background:#fff;border-radius:16px;overflow:hidden;
+    border:1px solid #edf2f7;transition:.3s;
+  }
+  .meeting-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+  .meeting-thumb{
+    height:150px;display:flex;align-items:center;justify-content:center;
+    font-size:42px;color:rgba(255,255,255,.75);
+    background:linear-gradient(135deg,#2b6cb0,#63b3ed);
+  }
+  .mt-g1{background:linear-gradient(135deg,#38a169,#68d391)}
+  .mt-g2{background:linear-gradient(135deg,#d69e2e,#f6ad55)}
+  .mt-g3{background:linear-gradient(135deg,#805ad5,#b794f4)}
+  .meeting-body{padding:18px 20px 20px}
+  .meeting-body .mm{font-size:11.5px;color:#a0aec0;margin-bottom:6px}
+  .meeting-body h3{font-size:14.5px;font-weight:700;color:#1a202c;line-height:1.7;margin-bottom:10px}
+  .meeting-body h3 a:hover{color:#2b6cb0}
+  .meeting-body p{font-size:12.5px;color:#718096;line-height:1.9}
+
+  /* ============ MULTIMEDIA ============ */
+  .media-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
+  .media-card{
+    background:#fff;border-radius:16px;overflow:hidden;
+    border:1px solid #edf2f7;transition:.3s;
+  }
+  .media-card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(0,0,0,.08)}
+  .media-thumb{
+    height:170px;display:flex;align-items:center;justify-content:center;
+    font-size:44px;color:rgba(255,255,255,.8);position:relative;
+    background:linear-gradient(135deg,#1e3a5f,#2b6cb0);
+  }
+  .media-thumb.m2{background:linear-gradient(135deg,#38a169,#9ae6b4)}
+  .media-thumb.m3{background:linear-gradient(135deg,#d69e2e,#fbd38d)}
+  .media-play{
+    position:absolute;bottom:12px;left:12px;width:38px;height:38px;
+    background:rgba(255,255,255,.92);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#2b6cb0;font-size:14px;
+  }
+  .media-body{padding:16px 18px}
+  .media-body h4{font-size:13.5px;font-weight:700;color:#1a202c;line-height:1.7}
+  .media-body h4 a:hover{color:#2b6cb0}
+  .media-body .mm{font-size:11.5px;color:#a0aec0;margin-top:6px}
+
+  /* ============ LIBRARY ============ */
+  .book-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .book-card{
+    background:#fff;border-radius:16px;padding:20px;
+    border:1px solid #edf2f7;transition:.3s;text-align:center;
+  }
+  .book-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.08);border-color:#bee3f8}
+  .book-cover{
+    width:110px;height:150px;margin:0 auto 14px;border-radius:8px;
+    background:linear-gradient(135deg,#2b6cb0,#63b3ed);
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.85);font-size:36px;
+    box-shadow:0 8px 20px rgba(43,108,176,.25);
+  }
+  .bc-g2{background:linear-gradient(135deg,#38a169,#68d391);box-shadow:0 8px 20px rgba(56,161,105,.25)}
+  .bc-g3{background:linear-gradient(135deg,#d69e2e,#f6ad55);box-shadow:0 8px 20px rgba(214,158,46,.25)}
+  .bc-g4{background:linear-gradient(135deg,#805ad5,#b794f4);box-shadow:0 8px 20px rgba(128,90,213,.25)}
+  .book-card h4{font-size:13.5px;font-weight:700;color:#1a202c;margin-bottom:6px;line-height:1.7}
+  .book-card .ba{font-size:11.5px;color:#a0aec0}
+
+  /* ============ BIO ============ */
+  .bio-panel{
+    background:linear-gradient(135deg,#f0f7ff,#e6f0fa);
+    border-radius:22px;padding:40px;display:grid;
+    grid-template-columns:auto 1fr;gap:36px;align-items:center;
+    border:1px solid #bee3f8;
+  }
+  .bio-avatar{
+    width:130px;height:130px;border-radius:50%;
+    background:linear-gradient(135deg,#2b6cb0,#4299e1);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:52px;font-weight:800;
+    box-shadow:0 10px 30px rgba(43,108,176,.3);
+    border:5px solid #fff;
+  }
+  .bio-content h2{font-size:22px;font-weight:800;color:#1a202c;margin-bottom:8px}
+  .bio-content .bio-role{font-size:13.5px;color:#2b6cb0;font-weight:600;margin-bottom:14px}
+  .bio-content p{font-size:14px;color:#4a5568;line-height:2.1;margin-bottom:18px;text-align:justify}
+  .bio-stats{display:flex;gap:24px;flex-wrap:wrap}
+  .bio-stat .num{font-size:22px;font-weight:800;color:#2b6cb0}
+  .bio-stat .lbl{font-size:12px;color:#718096}
+
+  /* ============ MEMORIES ============ */
+  .memory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .memory-card{
+    background:#fff;border-radius:16px;padding:24px;
+    border:1px solid #edf2f7;border-right:4px solid #4299e1;
+    transition:.3s;position:relative;
+  }
+  .memory-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.07)}
+  .memory-card .quote{
+    position:absolute;top:12px;left:18px;
+    font-size:44px;color:#bee3f8;font-family:Georgia,serif;line-height:1;
+  }
+  .memory-card p{font-size:13.5px;color:#4a5568;line-height:2;margin-bottom:14px;position:relative;z-index:1}
+  .memory-card .who{font-size:12.5px;color:#2b6cb0;font-weight:700}
+  .memory-card .when{font-size:11.5px;color:#a0aec0;margin-top:2px}
+
+  /* ============ CONTACT ============ */
+  .contact-wrap{
+    background:#fff;border-radius:22px;padding:40px;
+    border:1px solid #edf2f7;box-shadow:0 4px 22px rgba(0,0,0,.04);
+  }
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+  .contact-info h2{font-size:22px;font-weight:800;color:#1a202c;margin-bottom:10px}
+  .contact-info > p{font-size:14px;color:#718096;line-height:2;margin-bottom:24px}
+  .contact-list{display:flex;flex-direction:column;gap:14px}
+  .contact-row{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:16px;background:#f7fafc;border-radius:14px;
+    border:1px solid #edf2f7;transition:.3s;
+  }
+  .contact-row:hover{background:#ebf4ff;border-color:#bee3f8}
+  .contact-row .ci{
+    width:42px;height:42px;border-radius:11px;flex-shrink:0;
+    background:#fff;color:#2b6cb0;font-size:18px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 8px rgba(43,108,176,.1);
+  }
+  .contact-row h4{font-size:13.5px;font-weight:700;color:#1a202c;margin-bottom:4px}
+  .contact-row p{font-size:13px;color:#4a5568;line-height:1.85}
+  .contact-row p.ltr{direction:ltr;text-align:right}
+
+  .map-box{
+    background:#f7fafc;border-radius:18px;border:1px solid #e2e8f0;
+    min-height:340px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:14px;
+    padding:30px;text-align:center;
+  }
+  .map-box .mp{
+    width:70px;height:70px;border-radius:20px;background:#ebf4ff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:30px;color:#2b6cb0;
+  }
+  .map-box h3{font-size:15.5px;font-weight:700;color:#1a202c}
+  .map-box p{font-size:13px;color:#718096;line-height:1.95}
+
+  /* ============ FOOTER ============ */
+  .footer{background:#1a202c;color:#a0aec0;margin-top:40px}
+  .footer-main{padding:56px 0 40px}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:36px}
+  .footer h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:16px}
+  .footer h4{font-size:14.5px;font-weight:700;color:#fff;margin-bottom:16px}
+  .footer-brand .logo-line{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .footer-brand .fl-icon{
+    width:44px;height:44px;border-radius:12px;
+    background:linear-gradient(135deg,#2b6cb0,#4299e1);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:20px;font-weight:800;
+  }
+  .footer-brand .fl-text .t{font-size:15px;font-weight:700;color:#fff}
+  .footer-brand .fl-text .s{font-size:11.5px;color:#718096}
+  .footer-brand p{font-size:13px;line-height:2;color:#a0aec0}
+  .footer-links{display:flex;flex-direction:column;gap:10px}
+  .footer-links a{font-size:13px;color:#a0aec0;transition:.3s}
+  .footer-links a:hover{color:#63b3ed;padding-right:4px}
+  .footer-contact{display:flex;flex-direction:column;gap:12px}
+  .footer-contact div{
+    font-size:13px;color:#a0aec0;display:flex;gap:10px;
+    align-items:flex-start;line-height:1.9;
+  }
+  .footer-contact span.ic{color:#63b3ed}
+  .footer-bottom{
+    border-top:1px solid #2d3748;padding:22px 0;
+    text-align:center;font-size:12.5px;color:#718096;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:1024px){
+    .news-grid{grid-template-columns:1fr 1fr}
+    .news-feature{grid-column:span 2}
+    .cat-grid{grid-template-columns:repeat(3,1fr)}
+    .media-grid{grid-template-columns:1fr 1fr}
+    .media-card:first-child{grid-column:span 2}
+    .book-grid{grid-template-columns:repeat(2,1fr)}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:768px){
+    .topbar-inner{justify-content:center}
+    .header-search{display:none}
+    .mobile-toggle{display:flex}
+    .btn-member{display:none}
+    .mainnav-inner{
+      position:absolute;top:100%;right:0;left:0;background:#fff;
+      flex-direction:column;padding:10px;gap:2px;
+      border-bottom:1px solid #e8ecf1;box-shadow:0 10px 30px rgba(0,0,0,.08);
+      max-height:0;overflow:hidden;transition:max-height .4s ease;
+    }
+    .mainnav-inner.open{max-height:600px;overflow-y:auto}
+    .mainnav-inner > li > a{width:100%;justify-content:space-between;border-bottom:none;border-radius:10px}
+    .mainnav-inner > li > a:hover{background:#ebf4ff}
+    .dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;padding:0 12px;background:#f7fafc;margin-bottom:4px;display:none}
+    .mainnav-inner > li:hover .dropdown{display:none}
+    .mainnav-inner > li.open-sub .dropdown{display:block}
+
+    .hero-grid{grid-template-columns:1fr}
+    .slider{min-height:300px;padding:26px 22px}
+    .slider h1{font-size:22px}
+    .news-grid,.cat-grid,.meeting-grid,.memory-grid{grid-template-columns:1fr}
+    .news-feature{grid-column:auto}
+    .split-grid{grid-template-columns:1fr}
+    .media-grid{grid-template-columns:1fr}
+    .media-card:first-child{grid-column:auto}
+    .book-grid{grid-template-columns:1fr 1fr}
+    .bio-panel{grid-template-columns:1fr;text-align:center;padding:30px 24px}
+    .bio-avatar{margin:0 auto}
+    .bio-content p{text-align:center}
+    .bio-stats{justify-content:center}
+    .contact-grid{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr;gap:28px}
+  }
+  @media (max-width:420px){
+    .book-grid{grid-template-columns:1fr}
+    .quick-access{grid-template-columns:1fr 1fr}
+    .section-head .title-wrap h2{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-left">
+      <span>📅 پنجشنبه، ۲۵ مهر ۱۴۰۴</span>
+      <span>🕌 مسجد حضرت محمد ص</span>
+      <span>📍 امام خمینی ۵۸</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#" title="واتساپ">💬</a>
+      <a href="#" title="ایتا">📨</a>
+      <a href="#" title="بله">📩</a>
+      <a href="#" title="اینستاگرام">📷</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container">
+    <div class="header-main">
+      <a href="#home" class="logo">
+        <div class="logo-icon">ب</div>
+        <div class="logo-text">
+          <div class="title">پایگاه بسیج نامجو</div>
+          <div class="subtitle">مسجد حضرت محمد ص — امام خمینی ۵۸</div>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <input type="text" placeholder="جستجو در سایت...">
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="header-actions">
+        <a href="#contact" class="btn-member">عضویت در پایگاه</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="منو">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="mainnav">
+    <div class="container">
+      <ul class="mainnav-inner" id="mainNav">
+        <li class="active"><a href="#home">خانه</a></li>
+        <li>
+          <a href="#news">اخبار پایگاه <span class="arrow">▼</span></a>
+          <div class="dropdown">
+            <a href="#news">اخبار محله</a>
+            <a href="#news">اطلاعیه‌ها</a>
+            <a href="#news">گزارش برنامه‌ها</a>
+            <a href="#news">مناسبت‌ها</a>
+          </div>
+        </li>
+        <li>
+          <a href="#speech">بیانات و پیام‌ها <span class="arrow">▼</span></a>
+          <div class="dropdown">
+            <a href="#speech">بیانات فرماندهی</a>
+            <a href="#speech">پیام‌های مناسبتی</a>
+            <a href="#speech">ابلاغیه‌ها</a>
+          </div>
+        </li>
+        <li>
+          <a href="#meetings">دیدارها و جلسات <span class="arrow">▼</span></a>
+          <div class="dropdown">
+            <a href="#meetings">جلسات هفتگی</a>
+            <a href="#meetings">دیدار با خانواده شهدا</a>
+            <a href="#meetings">نشست‌های بصیرتی</a>
+          </div>
+        </li>
+        <li>
+          <a href="#services">خدمات و فعالیت‌ها <span class="arrow">▼</span></a>
+          <div class="dropdown">
+            <a href="#services">کمک‌های مومنانه</a>
+            <a href="#services">اردوهای جهادی</a>
+            <a href="#services">طرح محرومیت‌زدایی</a>
+            <a href="#services">تربیت نوجوان</a>
+          </div>
+        </li>
+        <li><a href="#rulings">احکام و استفتائات</a></li>
+        <li><a href="#library">کتابخانه</a></li>
+        <li>
+          <a href="#media">چندرسانه‌ای <span class="arrow">▼</span></a>
+          <div class="dropdown">
+            <a href="#media">گالری تصاویر</a>
+            <a href="#media">ویدیو</a>
+            <a href="#media">پادکست صوتی</a>
+          </div>
+        </li>
+        <li><a href="#bio">زندگی‌نامه شهدا</a></li>
+        <li><a href="#memories">خاطرات و حکایات</a></li>
+        <li><a href="#contact">تماس با ما</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="slider">
+        <div class="slider-content">
+          <span class="slider-tag">🟢 خبر ویژه پایگاه</span>
+          <h1>پایگاه بسیج نامجو؛ سنگر خدمت، مقاومت و تربیت نسل انقلابی</h1>
+          <p>با همت بسیجیان جهادگر، در جوار مسجد حضرت محمد ص (ص) برنامه‌های فرهنگی، جهادی و اجتماعی متنوعی در حال اجراست.</p>
+          <div class="slider-actions">
+            <a href="#services" class="btn-white">مشاهده فعالیت‌ها</a>
+            <a href="#contact" class="btn-ghost">تماس با پایگاه</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="side-card">
+          <h3>آخرین اخبار</h3>
+          <ul class="side-list">
+            <li><a href="#news">توزیع ۵۰ بسته معیشتی بین خانواده‌های نیازمند محله</a></li>
+            <li><a href="#news">اردوی تفریحی نونهالان در اردوگاه امیرالمؤمنین (ع)</a></li>
+            <li><a href="#news">برگزاری مراسم نهضت روشنگری با حضور مسئولان</a></li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h3>دسترسی سریع</h3>
+          <div class="quick-access">
+            <a href="#services" class="qa-item">
+              <div class="qa-icon">🤲</div>
+              <div class="qa-label">کمک‌های مومنانه</div>
+            </a>
+            <a href="#meetings" class="qa-item">
+              <div class="qa-icon">🗣️</div>
+              <div class="qa-label">نشست بصیرتی</div>
+            </a>
+            <a href="#media" class="qa-item">
+              <div class="qa-icon">🖼️</div>
+              <div class="qa-label">گالری تصاویر</div>
+            </a>
+            <a href="#contact" class="qa-item">
+              <div class="qa-icon">📝</div>
+              <div class="qa-label">فرم عضویت</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="cat-grid">
+      <a href="#news" class="cat-card">
+        <div class="cat-icon ci-blue">📰</div>
+        <h3>اخبار پایگاه</h3>
+        <p>آخرین رویدادها و اطلاعیه‌های پایگاه</p>
+      </a>
+      <a href="#speech" class="cat-card">
+        <div class="cat-icon ci-green">🎙️</div>
+        <h3>بیانات و پیام‌ها</h3>
+        <p>سخنرانی‌ها و پیام‌های مناسبتی</p>
+      </a>
+      <a href="#meetings" class="cat-card">
+        <div class="cat-icon ci-amber">🤝</div>
+        <h3>دیدارها و جلسات</h3>
+        <p>گزارش جلسات و دیدارها</p>
+      </a>
+      <a href="#services" class="cat-card">
+        <div class="cat-icon ci-red">🤲</div>
+        <h3>خدمات و فعالیت‌ها</h3>
+        <p>طرح‌های جهادی و محرومیت‌زدایی</p>
+      </a>
+      <a href="#rulings" class="cat-card">
+        <div class="cat-icon ci-purple">📖</div>
+        <h3>احکام و استفتائات</h3>
+        <p>پاسخ به سوالات شرعی</p>
+      </a>
+      <a href="#library" class="cat-card">
+        <div class="cat-icon ci-teal">📚</div>
+        <h3>کتابخانه</h3>
+        <p>معرفی کتاب و منابع</p>
+      </a>
+      <a href="#media" class="cat-card">
+        <div class="cat-icon ci-pink">🎬</div>
+        <h3>چندرسانه‌ای</h3>
+        <p>عکس، ویدیو و پادکست</p>
+      </a>
+      <a href="#bio" class="cat-card">
+        <div class="cat-icon ci-indigo">🎗️</div>
+        <h3>زندگی‌نامه شهدا</h3>
+        <p>سیره و خاطرات شهدا</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWS ============ -->
+<section class="section section-alt" id="news">
+  <div class="container">
+    <div class="section-head">
+      <div class="title-wrap">
+        <h2>اخبار پایگاه</h2>
+        <p>آخرین رویدادها، اطلاعیه‌ها و گزارش برنامه‌های پایگاه بسیج نامجو</p>
+      </div>
+      <a href="#news" class="more-link">مشاهده همه اخبار ←</a>
+    </div>
+
+    <div class="news-grid">
+      <article class="news-feature">
+        <div class="news-thumb">
+          📦
+          <span class="news-badge">خبر ویژه</span>
+        </div>
+        <div class="news-body">
+          <div class="news-meta">
+            <span>📅 ۲۴ مهر ۱۴۰۴</span>
+            <span>👁 ۳۲۴ بازدید</span>
+          </div>
+          <h3><a href="#">توزیع ۵۰ بسته معیشتی به ارزش ۱۲۰ میلیون ریال بین خانواده‌های نیازمند محله</a></h3>
+          <p>به همت بسیجیان جهادگر پایگاه شهید نامجو، پنجاه بسته حمایتی معیشتی شامل برنج، روغن، رب و سایر اقلام ضروری، بین خانواده‌های نیازمند محله امام خمینی ۵۸ توزیع شد.</p>
+          <a href="#" class="read">ادامه خبر ←</a>
+        </div>
+      </article>
+
+      <div class="news-list">
+        <article class="news-mini">
+          <div class="mini-icon">🎉</div>
+          <div>
+            <h4><a href="#">اردوی تفریحی نیم‌روزه نونهالان مسجد برگزار شد</a></h4>
+            <div class="nm">📅 ۲۲ مهر ۱۴۰۴</div>
+          </div>
+        </article>
+
+        <article class="news-mini">
+          <div class="mini-icon">🍲</div>
+          <div>
+            <h4><a href="#">توزیع روزانه ۳۰۰ پرس غذای گرم در ماه رمضان</a></h4>
+            <div class="nm">📅 ۲۰ مهر ۱۴۰۴</div>
+          </div>
+        </article>
+
+        <article class="news-mini">
+          <div class="mini-icon">🗣️</div>
+          <div>
+            <h4><a href="#">مراسم نهضت روشنگری با حضور نماینده مجلس برگزار شد</a></h4>
+            <div class="nm">📅 ۱۹ مهر ۱۴۰۴</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="news-list">
+        <article class="news-mini">
+          <div class="mini-icon">🎗️</div>
+          <div>
+            <h4><a href="#">دیدار با خانواده معظم شهید نامجو (ره)</a></h4>
+            <div class="nm">📅 ۱۸ مهر ۱۴۰۴</div>
+          </div>
+        </article>
+
+        <article class="news-mini">
+          <div class="mini-icon">📚</div>
+          <div>
+            <h4><a href="#">برگزاری کلاس‌های قرآن و تربیتی برای نوجوانان</a></h4>
+            <div class="nm">📅 ۱۷ مهر ۱۴۰۴</div>
+          </div>
+        </article>
+
+        <article class="news-mini">
+          <div class="mini-icon">🕌</div>
+          <div>
+            <h4><a href="#">همکاری پایگاه در برگزاری مراسم مسجد حضرت محمد ص</a></h4>
+            <div class="nm">📅 ۱۶ مهر ۱۴۰۴</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPEECH + MEETINGS ============ -->
+<section class="section" id="speech">
+  <div class="container">
+    <div class="split-grid">
+      <div class="topic-panel">
+        <h3>🎙️ بیانات و پیام‌ها <a href="#">آرشیو کامل ←</a></h3>
+
+        <div class="speech-item">
+          <div class="sp-icon">📢</div>
+          <div>
+            <h4><a href="#">پیام تبریک به مناسبت هفته بسیج</a></h4>
+            <div class="sm">۳۰ آبان ۱۴۰۴</div>
+          </div>
+        </div>
+
+        <div class="speech-item">
+          <div class="sp-icon">🎙️</div>
+          <div>
+            <h4><a href="#">بیانات فرمانده پایگاه در نشست بصیرتی</a></h4>
+            <div class="sm">۱۹ دی ۱۴۰۳</div>
+          </div>
+        </div>
+
+        <div class="speech-item">
+          <div class="sp-icon">📜</div>
+          <div>
+            <h4><a href="#">ابلاغیه اجرای رزمایش کمک‌های مومنانه</a></h4>
+            <div class="sm">۱۵ رمضان ۱۴۴۶</div>
+          </div>
+        </div>
+
+        <div class="speech-item">
+          <div class="sp-icon">✉️</div>
+          <div>
+            <h4><a href="#">پیام تسلیت شهادت سید مقاومت</a></h4>
+            <div class="sm">۵ مهر ۱۴۰۳</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-panel">
+        <h3>🤝 دیدارها و جلسات <a href="#">آرشیو کامل ←</a></h3>
+
+        <div class="speech-item">
+          <div class="sp-icon">👥</div>
+          <div>
+            <h4><a href="#">جلسه هفتگی حلقه صالحین نوجوانان</a></h4>
+            <div class="sm">هر پنجشنبه — ۱۷:۰۰</div>
+          </div>
+        </div>
+
+        <div class="speech-item">
+          <div class="sp-icon">🏠</div>
+          <div>
+            <h4><a href="#">دیدار با خانواده شهید والامقام</a></h4>
+            <div class="sm">۱۸ مهر ۱۴۰۴</div>
+          </div>
+        </div>
+
+        <div class="speech-item">
+          <div class="sp-icon">📋</div>
+          <div>
+            <h4><a href="#">نشست هم‌اندیشی با هیئت امنای مسجد</a></h4>
+            <div class="sm">۱۲ مهر ۱۴۰۴</div>
+          </div>
+        </div>
+
+        <div class="speech-item">
+          <div class="sp-icon">🎓</div>
+          <div>
+            <h4><a href="#">جلسه توجیهی اردوی جهادی دانشجویی</a></h4>
+            <div class="sm">۱۰ مهر ۱۴۰۴</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEETINGS (cards) ============ -->
+<section class="section section-alt" id="meetings">
+  <div class="container">
+    <div class="section-head">
+      <div class="title-wrap">
+        <h2>گزارش دیدارها و جلسات</h2>
+        <p>گزارش تصویری و متنی جلسات و دیدارهای پایگاه</p>
+      </div>
+      <a href="#" class="more-link">مشاهده آرشیو ←</a>
+    </div>
+
+    <div class="meeting-grid">
+      <article class="meeting-card">
+        <div class="meeting-thumb">👥</div>
+        <div class="meeting-body">
+          <div class="mm">📅 ۲۲ مهر ۱۴۰۴</div>
+          <h3><a href="#">جلسه هفتگی حلقه صالحین نوجوانان مسجد</a></h3>
+          <p>جلسه هفتگی حلقه صالحین با حضور پرشور نوجوانان مسجد حضرت محمد ص برگزار شد.</p>
+        </div>
+      </article>
+
+      <article class="meeting-card">
+        <div class="meeting-thumb mt-g1">🏠</div>
+        <div class="meeting-body">
+          <div class="mm">📅 ۱۸ مهر ۱۴۰۴</div>
+          <h3><a href="#">دیدار با خانواده معظم شهدا</a></h3>
+          <p>بسیجیان پایگاه با حضور در منزل خانواده شهید والامقام، یاد و خاطره او را گرامی داشتند.</p>
+        </div>
+      </article>
+
+      <article class="meeting-card">
+        <div class="meeting-thumb mt-g2">📋</div>
+        <div class="meeting-body">
+          <div class="mm">📅 ۱۲ مهر ۱۴۰۴</div>
+          <h3><a href="#">نشست هم‌اندیشی با هیئت امنای مسجد</a></h3>
+          <p>جلسه هم‌اندیشی و هماهنگی برنامه‌های مشترک پایگاه بسیج و هیئت امنای مسجد برگزار شد.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="title-wrap">
+        <h2>خدمات و فعالیت‌ها</h2>
+        <p>طرح‌های جهادی، فرهنگی و اجتماعی پایگاه بسیج نامجو</p>
+      </div>
+    </div>
+
+    <div class="cat-grid">
+      <a href="#" class="cat-card">
+        <div class="cat-icon ci-red">🤲</div>
+        <h3>کمک‌های مومنانه</h3>
+        <p>تهیه و توزیع بسته‌های معیشتی و غذای گرم</p>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon ci-green">🏕️</div>
+        <h3>اردوهای جهادی</h3>
+        <p>اردوهای خدمت‌رسانی و محرومیت‌زدایی</p>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon ci-blue">🎓</div>
+        <h3>تربیت نوجوان</h3>
+        <p>حلقه‌های صالحین و برنامه‌های تربیتی</p>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon ci-amber">🕌</div>
+        <h3>فعالیت مسجدمحور</h3>
+        <p>همکاری در برگزاری مراسم مسجد</p>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon ci-purple">🎗️</div>
+        <h3>گرامیداشت شهدا</h3>
+        <p>یادواره‌ها و دیدار با خانواده شهدا</p>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon ci-teal">📚</div>
+        <h3>کلاس‌های آموزشی</h3>
+        <p>کلاس‌های قرآن، احکام و مهارت‌آموزی</p>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon ci-pink">🧑‍🏫</div>
+        <h3>مشاوره و راهنمایی</h3>
+        <p>خدمات مشاوره‌ای برای جوانان محله</p>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon ci-indigo">📦</div>
+        <h3>طرح‌های مناسبتی</h3>
+        <p>اجرای طرح‌های ویژه ایام مختلف سال</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MULTIMEDIA ============ -->
+<section class="section section-alt" id="media">
+  <div class="container">
+    <div class="section-head">
+      <div class="title-wrap">
+        <h2>چندرسانه‌ای</h2>
+        <p>گالری تصاویر، ویدیوها و پادکست‌های صوتی پایگاه</p>
+      </div>
+      <a href="#" class="more-link">آرشیو کامل ←</a>
+    </div>
+
+    <div class="media-grid">
+      <article class="media-card">
+        <div class="media-thumb">
+          🎬
+          <div class="media-play">▶</div>
+        </div>
+        <div class="media-body">
+          <h4><a href="#">گزارش تصویری از رزمایش کمک‌های مومنانه</a></h4>
+          <div class="mm">📅 ۲۴ مهر ۱۴۰۴ — ۴:۳۲ دقیقه</div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-thumb m2">📸</div>
+        <div class="media-body">
+          <h4><a href="#">گالری تصاویر اردوی نونهالان</a></h4>
+          <div class="mm">📅 ۲۲ مهر ۱۴۰۴ — ۲۴ عکس</div>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-thumb m3">🎧</div>
+        <div class="media-body">
+          <h4><a href="#">پادکست صوتی بیانات فرماندهی</a></h4>
+          <div class="mm">📅 ۱۹ مهر ۱۴۰۴ — ۱۲:۰۵ دقیقه</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIBRARY ============ -->
+<section class="section" id="library">
+  <div class="container">
+    <div class="section-head">
+      <div class="title-wrap">
+        <h2>کتابخانه پایگاه</h2>
+        <p>معرفی کتاب‌های مذهبی، انقلابی و مناسب نوجوانان و جوانان</p>
+      </div>
+      <a href="#" class="more-link">مشاهده همه کتاب‌ها ←</a>
+    </div>
+
+    <div class="book-grid">
+      <article class="book-card">
+        <div class="book-cover">📕</div>
+        <h4>خاطرات شهید نامجو (ره)</h4>
+        <div class="ba">مجموعه خاطرات — انتشارات بسیج</div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover bc-g2">📗</div>
+        <h4>سیره عملی شهدای محله</h4>
+        <div class="ba">پژوهش — واحد فرهنگی پایگاه</div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover bc-g3">📘</div>
+        <h4>راهنمای حلقه‌های صالحین</h4>
+        <div class="ba">تربیتی — سازمان بسیج</div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-cover bc-g4">📙</div>
+        <h4>فرهنگ جهاد و مقاومت</h4>
+        <div class="ba">فرهنگی — انتشارات انقلاب</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIO ============ -->
+<section class="section section-alt" id="bio">
+  <div class="container">
+    <div class="bio-panel">
+      <div class="bio-avatar">ن</div>
+      <div class="bio-content">
+        <h2>شهید والامقام نامجو (ره)</h2>
+        <div class="bio-role">🎗️ سردار سرافراز اسلام — نام پایگاه مزین به نام ایشان</div>
+        <p>
+          شهید والامقام نامجو از شهدای سرافراز انقلاب اسلامی و دفاع مقدس است که با ایثار و از خودگذشتگی،
+          درس آزادگی و مقاومت را به نسل‌های بعدی آموخت. پایگاه بسیج مسجد حضرت محمد ص (ص) با افتخار
+          مزین به نام این شهید بزرگوار است و راه او را در خدمت به محله و تربیت نوجوانان انقلابی ادامه می‌دهد.
+        </p>
+        <div class="bio-stats">
+          <div class="bio-stat">
+            <div class="num">+۱۰</div>
+            <div class="lbl">سال فعالیت پایگاه</div>
+          </div>
+          <div class="bio-stat">
+            <div class="num">+۵۰۰</div>
+            <div class="lbl">خانواده تحت پوشش</div>
+          </div>
+          <div class="bio-stat">
+            <div class="num">+۱۰۰</div>
+            <div class="lbl">بسیجی فعال</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEMORIES ============ -->
+<section class="section" id="memories">
+  <div class="container">
+    <div class="section-head">
+      <div class="title-wrap">
+        <h2>خاطرات و حکایات</h2>
+        <p>خاطرات بسیجیان، نکات کمترشنیده‌شده و حکایات شهدا</p>
+      </div>
+      <a href="#" class="more-link">همه خاطرات ←</a>
+    </div>
+
+    <div class="memory-grid">
+      <div class="memory-card">
+        <div class="quote">"</div>
+        <p>شبی که بسته‌های معیشتی رو می‌بردیم دم در خانه‌ها، یکی از اهالی گفت: «شما همون بسیجی‌هایید که همیشه هوای ما رو دارید.» این جمله خستگی همه راه رو از تنم بیرون کرد.</p>
+        <div class="who">— یکی از بسیجیان پایگاه</div>
+        <div class="when">رزمایش کمک‌های مومنانه — ۱۴۰۴</div>
+      </div>
+
+      <div class="memory-card">
+        <div class="quote">"</div>
+        <p>شهید نامجو همیشه می‌گفت: «بسیجی باید مثل شمع باشه، خودش بسوزه تا اطرافش روشن بشه.» امروز پایگاه ما با همین روحیه داره کار می‌کنه.</p>
+        <div class="who">— راوی از همرزمان شهید</div>
+        <div class="when">خاطره دفاع مقدس</div>
+      </div>
+
+      <div class="memory-card">
+        <div class="quote">"</div>
+        <p>اردوی نونهالان که تموم شد، یکی از بچه‌ها گفت: «حاج آقا، من هم می‌خوام بسیجی بشم.» این لحظه‌هاست که ارزش همه تلاش‌ها رو داره.</p>
+        <div class="who">— مسئول تربیت پایگاه</div>
+        <div class="when">اردوی تفریحی — مهر ۱۴۰۴</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULINGS ============ -->
+<section class="section section-alt" id="rulings">
+  <div class="container">
+    <div class="section-head">
+      <div class="title-wrap">
+        <h2>احکام و استفتائات</h2>
+        <p>پاسخ به سوالات شرعی رایج — با همکاری روحانی مسجد حضرت محمد ص</p>
+      </div>
+      <a href="#" class="more-link">ارسال سوال جدید ←</a>
+    </div>
+
+    <div class="split-grid">
+      <div class="topic-panel">
+        <h3>پرسش‌های پرتکرار</h3>
+        <div class="speech-item">
+          <div class="sp-icon">❓</div>
+          <div>
+            <h4><a href="#">حکم شرعی شرکت در مراسم عزاداری و شادی اهلبیت (ع)</a></h4>
+            <div class="sm">احکام عزاداری</div>
+          </div>
+        </div>
+        <div class="speech-item">
+          <div class="sp-icon">❓</div>
+          <div>
+            <h4><a href="#">شرایط پرداخت خمس و مصرف آن در فعالیت‌های فرهنگی</a></h4>
+            <div class="sm">احکام مالی</div>
+          </div>
+        </div>
+        <div class="speech-item">
+          <div class="sp-icon">❓</div>
+          <div>
+            <h4><a href="#">احکام مربوط به نماز جماعت در مسجد محله</a></h4>
+            <div class="sm">احکام نماز</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-panel">
+        <h3>ارسال پرسش شرعی</h3>
+        <div style="padding:10px 4px">
+          <p style="font-size:13.5px;color:#718096;line-height:2;margin-bottom:16px">
+            سوال شرعی خود را برای روحانی مسجد ارسال کنید. پاسخ پس از بررسی، منتشر یا به صورت خصوصی ارسال می‌شود.
+          </p>
+          <a href="#contact" class="btn-member" style="display:inline-block">ارسال سوال</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>تماس با پایگاه بسیج نامجو</h2>
+          <p>برای هماهنگی، عضویت، شرکت در برنامه‌ها و ارائه پیشنهادها با ما در ارتباط باشید.</p>
+
+          <div class="contact-list">
+            <div class="contact-row">
+              <div class="ci">📍</div>
+              <div>
+                <h4>آدرس پایگاه</h4>
+                <p>امام خمینی ۵۸، مسجد حضرت محمد ص (ص)</p>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="ci">📞</div>
+              <div>
+                <h4>شماره تماس</h4>
+                <p class="ltr">۰۹۱۵۱۱۰۳۷۰۰</p>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="ci">🕐</div>
+              <div>
+                <h4>ساعات فعالیت</h4>
+                <p>شنبه تا پنجشنبه — ۱۶:۰۰ تا ۲۰:۰۰</p>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="ci">🕌</div>
+              <div>
+                <h4>محل استقرار</h4>
+                <p>مسجد حضرت محمد ص (ص)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-box">
+          <div class="mp">🗺️</div>
+          <h3>امام خمینی ۵۸ — مسجد حضرت محمد ص</h3>
+          <p>محل استقرار پایگاه مقاومت بسیج شهید نامجو (ره)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-line">
+            <div class="fl-icon">ب</div>
+            <div class="fl-text">
+              <div class="t">پایگاه بسیج نامجو</div>
+              <div class="s">مسجد حضرت محمد ص</div>
+            </div>
+          </div>
+          <p>
+            پایگاه مقاومت بسیج شهید نامجو (ره) با هدف خدمت به محله، تربیت نوجوانان انقلابی
+            و اجرای برنامه‌های فرهنگی، جهادی و اجتماعی در جوار مسجد حضرت محمد ص (ص) فعالیت می‌کند.
+          </p>
+        </div>
+
+        <div>
+          <h4>دسترسی سریع</h4>
+          <div class="footer-links">
+            <a href="#news">اخبار پایگاه</a>
+            <a href="#speech">بیانات و پیام‌ها</a>
+            <a href="#meetings">دیدارها و جلسات</a>
+            <a href="#services">خدمات و فعالیت‌ها</a>
+            <a href="#rulings">احکام و استفتائات</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>بخش‌های دیگر</h4>
+          <div class="footer-links">
+            <a href="#library">کتابخانه</a>
+            <a href="#media">چندرسانه‌ای</a>
+            <a href="#bio">زندگی‌نامه شهدا</a>
+            <a href="#memories">خاطرات و حکایات</a>
+            <a href="#contact">تماس با ما</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>اطلاعات تماس</h4>
+          <div class="footer-contact">
+            <div><span class="ic">📍</span><span>امام خمینی ۵۸، مسجد حضرت محمد ص (ص)</span></div>
+            <div><span class="ic">📞</span><span>۰۹۱۵۱۱۰۳۷۰۰</span></div>
+            <div><span class="ic">🕐</span><span>شنبه تا پنجشنبه — ۱۶ تا ۲۰</span></div>
+            <div><span class="ic">📨</span><span>info@basij-namjoo.ir</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © ۱۴۰۴ پایگاه بسیج نامجو — تمامی حقوق محفوظ است.
+  </div>
+</footer>
+
+<!-- ============ JS ============ -->
+<script>
+  // منوی موبایل
+  const toggle = document.getElementById('mobileToggle');
+  const nav = document.getElementById('mainNav');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // زیرمنو در موبایل
+  document.querySelectorAll('.mainnav-inner > li').forEach(li => {
+    const link = li.querySelector('a');
+    if (li.querySelector('.dropdown')) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          li.classList.toggle('open-sub');
+        }
+      });
+    } else {
+      link.addEventListener('click', () => nav.classList.remove('open'));
+    }
+  });
+
+  // بستن منو بعد از کلیک روی لینک‌های داخل dropdown
+  document.querySelectorAll('.dropdown a').forEach(a => {
+    a.addEventListener('click', () => nav.classList.remove('open'));
+  });
+
+  // فعال‌سازی لینک ناوبری بر اساس اسکرول
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.mainnav-inner > li');
+
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 130) cur = s.id;
+    });
+    navLinks.forEach(li => {
+      li.classList.remove('active');
+      const a = li.querySelector('a');
+      if (a && a.getAttribute('href') === '#' + cur) li.classList.add('active');
+    });
+  });
+
+  // اسکرول نرم
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const t = document.querySelector(href);
+      if (t) {
+        e.preventDefault();
+        const y = t.getBoundingClientRect().top + window.scrollY - 130;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
